@@ -8,6 +8,8 @@ const client = new Discord.Client({
 
 //ESTE BOT VAI UTILIZAR O PACOTE WOK COMMANDS
 //https://docs.wornoffkeys.com/
+//BOT QUE MANTEM O SITE ONLINE NO REPLIT
+//https://uptimerobot.com/
 
 const WOK = require('wokcommands');
 

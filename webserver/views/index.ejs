@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>TLC-BOT</title>
+  <!-- CSS (load bootstrap from a CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+      body { padding-top:50px; }
+  </style>
+</head>
+<body class="container">
+
+<header>
+    <h1>Navbar futura</h1>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <h3>ÚLTIMAS MORTES</h3>        
+        <table width="50%" border="1pt">
+        <tr>
+          <th>DATA</th>
+          <th>HORA</th>
+          <th>MATADOR</th>
+          <th>VITIMA</th>
+          <th>LOCAL</th>
+        </tr>
+        <% dados.forEach(function(x) { %>
+          <tr>
+              <td><%= x.date_time.toLocaleDateString() %></td>
+              <td><%= `${x.date_time.getHours()}:${x.date_time.getMinutes()}` %></td>
+              <td><%= x.attacker_name %></td>
+              <td><%= x.victim_name %></td>
+              <td><%= x.location_name %></td>              
+          </tr>
+        <% }); %>
+      </table>      
+    </div>
+</main>
+
+<footer>
+    <p class="text-center text-muted">© Copyright 2020 The Awesome People</p>
+</footer>
+
+</body>
+</html>

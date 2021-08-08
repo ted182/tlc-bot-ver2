@@ -1,5 +1,6 @@
 const dotenv = require('dotenv').config();
 const Discord = require('discord.js');
+const keepAlive = require("./webserver/server");
 
 const client = new Discord.Client({
     // Use recommended partials for the built-in help menu
@@ -38,4 +39,5 @@ client.on('ready', () => {
     ])
 });
 
+keepAlive();
 client.login(process.env.TOKEN);

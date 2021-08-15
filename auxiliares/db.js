@@ -65,7 +65,7 @@ async function checaNovaLinha(){
 
 // função marca na tabela SQl que um aviso já foi anunciado no discord
 async function finalizaAnuncio(){    
-    const tabela = 'eventos_avisos'
+    const tabela = 'eventos_avisos';
     try {
         const conn = await connect();
         await conn.query(`UPDATE ${tabela} SET foipublicado = 1 WHERE id = (SELECT MAX(id) FROM ${tabela})`);
@@ -77,4 +77,18 @@ async function finalizaAnuncio(){
     }
 }
 
-module.exports = {selectLastKills, online, checaNovaLinha, finalizaAnuncio}
+// função que retorna a pesquisa na tabela de itens craftaveis
+async function getCraft(args){    
+    const tabela = 'craftitens';
+    try {
+        const conn = await connect();
+        const [rows] = await conn.query(`SELECT * FROM ${tabela} WHERE skill = '${args[0].toUpperCase()}' ORDER BY ordem`);
+        conn.end();
+        return rows;
+    } catch (e) {
+        log('ERR','[Erro 05] problema craftitens');
+        return null;
+    }
+}
+
+module.exports = {selectLastKills, online, checaNovaLinha, finalizaAnuncio, getCraft}

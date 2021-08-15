@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'mortes',
-    aliases: ['daun','deitados','mortes'],
+    aliases: ['daun','deitados'],
     category: 'Informações',
     description: 'Retorna as últimas mortes que ocorreram no servidor.',
     guildOnly: false,

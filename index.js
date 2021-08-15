@@ -39,5 +39,6 @@ client.on('ready', () => {
     ])
 });
 
-keepAlive();
+//keepAlive(); //desativando temporariamente o site
+
 client.login(process.env.TOKEN);
